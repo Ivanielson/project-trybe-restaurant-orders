@@ -12,12 +12,14 @@ def most_requested_to_maria(data):
                 answer_1[request] += 1
     return max(answer_1.items(), key=operator.itemgetter(1))[0]
 
+
 def how_many_hamburgers(data):
     answer_2 = 0
     for name, request, _ in data:
         if name == "arnaldo" and request == "hamburguer":
             answer_2 += 1
     return answer_2
+
 
 def never_asked(data):
     menu = set()
@@ -27,6 +29,7 @@ def never_asked(data):
         if name == "joao":
             joao_requests.add(request)
     return menu.difference(joao_requests)
+
 
 def is_not_present(data):
     days = set()
@@ -49,7 +52,12 @@ def analyze_log(path_to_file):
             answer_2 = how_many_hamburgers(data)
             answer_3 = never_asked(data)
             answer_4 = is_not_present(data)
-            LINES = [f"{answer_1}\n",f"{answer_2}\n",f"{answer_3}\n",f"{answer_4}\n"]
+            LINES = [
+                f"{answer_1}\n",
+                f"{answer_2}\n",
+                f"{answer_3}\n",
+                f"{answer_4}\n",
+            ]
         with open("data/mkt_campaign.txt", "w") as file:
             file.writelines(LINES)
     except FileNotFoundError:
