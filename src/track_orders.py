@@ -4,6 +4,7 @@ import operator
 class TrackOrders:
     def __init__(self):
         self.__data = list()
+
     # aqui deve expor a quantidade de estoque
     def __len__(self):
         return len(self.__data)
